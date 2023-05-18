@@ -7,18 +7,20 @@ import java.io.*;
  */
 public class UsingBufferedReader {
     public static void main(String[] args) throws IOException {
-
+    	
+        String FileName = args[0];
+        String FileName2 = args[1];
 
         //-------------- Test reading 1 MB file. --------------------
 
         StopWatch.start();
 
-        BufferedReader inputStream= new BufferedReader(new FileReader(DumpDataWriter.input1MB));
+        BufferedReader inputStream= new BufferedReader(new FileReader(FileName));
         while (inputStream.read()!=-1){}
 
         long duration = StopWatch.stop();
         System.out.println(duration + " milsec");
-        
+
         inputStream.close();
 
 
@@ -26,7 +28,7 @@ public class UsingBufferedReader {
 
         StopWatch.start();
 
-        BufferedReader inputStream2= new BufferedReader(new FileReader(DumpDataWriter.input10MB));
+        BufferedReader inputStream2= new BufferedReader(new FileReader(FileName2));
         while (inputStream2.read()!=-1){}
 
         long duration2 = StopWatch.stop();
